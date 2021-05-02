@@ -36,7 +36,7 @@ public class AtmOperator {
      */
     public static LinkedHashMap<Integer, Integer> returnSmallestAmount(int toWithDraw, LinkedHashMap<Integer, Integer> availableBills) {
         List<Integer> billValues = billValues(availableBills);
-        LinkedHashMap<Integer, Integer> toReturn = new LinkedHashMap<Integer, Integer>();
+        LinkedHashMap<Integer, Integer> toReturn = new LinkedHashMap<>();
         for (Integer bill : billValues) {
             int amount = toWithDraw / bill;
             if (toWithDraw / bill >= 1) {
@@ -115,7 +115,7 @@ public class AtmOperator {
      */
     public static LinkedHashMap<Integer, Integer> operate(int toWithDraw, LinkedHashMap<Integer, Integer> availableBills) throws Exception {
 
-        if (hasCash(toWithDraw, availableBills) && hasBills(toWithDraw, new LinkedHashMap<Integer,Integer>(availableBills)))
+        if (hasCash(toWithDraw, availableBills) && hasBills(toWithDraw, new LinkedHashMap<>(availableBills)))
             return removeBills(toWithDraw, availableBills);
         else
             throw new Exception("Transaction declined");
@@ -129,7 +129,7 @@ public class AtmOperator {
      */
     public static String billsToString(LinkedHashMap<Integer, Integer> availableBills){
             StringBuilder string = new StringBuilder();
-            availableBills.forEach((k,v)->string.append(v.toString()+" of "+ k.toString()+", "));
+            availableBills.forEach((k,v)-> string.append(v.toString()).append(" of ").append(k.toString()).append(", "));
             return string.toString();
         }
 
